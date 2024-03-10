@@ -11,10 +11,13 @@ class UIHelperLogin {
         textAlign: TextAlign.center,
         obscureText: oculto,
         autofocus: true,
+
         decoration: InputDecoration(
+
+
           hintText: text,
           suffixIcon: icon,
-          filled: false,
+          filled: true,
           hintStyle: TextStyle(),
           fillColor: Colors.white,
           border: OutlineInputBorder(

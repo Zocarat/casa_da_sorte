@@ -24,27 +24,42 @@ class _RegistroAuthenticatorState extends State<RegistroAuthenticator> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            UIHelperLogin.textFieldCuston(
-                'NOME', Icon(Icons.abc), false, _noError),
-            UIHelperLogin.textFieldCuston(
-                'SOBRENOME', Icon(Icons.abc), false, _noError),
-            UIHelperLogin.textFieldCuston(
-                'E-MAIL', Icon(Icons.abc), false, _emailController),
-            UIHelperLogin.textFieldCuston(
-                'SENHA', Icon(Icons.abc), true, _passwordController),
-            ElevatedButton(
-                onPressed: () {
-                  Autehenticator.register(_emailController.toString(),
-                      _passwordController.toString());
-                },
-                style: ElevatedButton.styleFrom(
-                    textStyle:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                child: Text('CADASTRAR'))
-          ],
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+                  "assets/fundoTelaCadastro.png"
+                ),
+              fit: BoxFit.cover,
+            )
+          ),
+
+
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              UIHelperLogin.textFieldCuston(
+                  'NOME', Icon(Icons.abc), false, _noError),
+              UIHelperLogin.textFieldCuston(
+                  'SOBRENOME', Icon(Icons.abc), false, _noError),
+              UIHelperLogin.textFieldCuston(
+                  'E-MAIL', Icon(Icons.abc), false, _emailController),
+              UIHelperLogin.textFieldCuston(
+                  'SENHA', Icon(Icons.abc), true, _passwordController),
+              ElevatedButton(
+                  onPressed: () {
+                    Autehenticator.register(_emailController.toString(),
+                        _passwordController.toString());
+                  },
+                  style: ElevatedButton.styleFrom(
+                      textStyle:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                  child: Text('CADASTRAR'))
+            ],
+          ),
         ),
       ),
     );

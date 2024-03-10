@@ -31,26 +31,40 @@ class _ScreenHomePageState extends State<ScreenHomePage>  {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 15.0),
-            PainelSuperior(''),
-            SizedBox(height: 15.0),
-            listaHorizontal([
-              CustomButtonJogos(
-                  (){
-                    Navigator.push(
-                        context, MaterialPageRoute(
-                        builder: (context) => ScreenRodaDaSorte()));
-                  }
-              ),
-
-
-
-            ]),
-          ],
+        child: Container(
+          
+          width: double.infinity,
+          height: double.infinity,
+          
+          decoration: const BoxDecoration(
+            
+            image: DecorationImage(image: AssetImage('assets/fundoTelaHome.png'),
+            fit: BoxFit.cover,
+            ),
+            
+          ),
+          
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 15.0),
+              PainelSuperior(''),
+              SizedBox(height: 15.0),
+              listaHorizontal([
+                CustomButtonJogos(
+                    (){
+                      Navigator.push(
+                          context, MaterialPageRoute(
+                          builder: (context) => ScreenRodaDaSorte()));
+                    }
+                ),
+          
+          
+          
+              ]),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: CustonButtonApp(),
