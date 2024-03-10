@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,29 +23,33 @@ class UIHelperLogin {
       ),
     );
   }
+}
 
-
-  }
-
-  Widget customButton ( VoidCallback calback , String text){
-
+Widget customButton(VoidCallback calback, String text) {
   return Container(
     width: 200,
     height: 50,
-
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(22),
-      color: Colors.deepPurple
-    ),
+        borderRadius: BorderRadius.circular(22), color: Colors.deepPurple),
     child: ElevatedButton(
-
       onPressed: calback,
       style: ElevatedButton.styleFrom(
+          textStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ),
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(22)), backgroundColor: Colors.deepPurpleAccent ),
+            borderRadius: BorderRadius.circular(22),
+          ),
+          backgroundColor: Colors.deepPurpleAccent),
+      child: Text(
+        text,
 
-      
-      child: Text(text,),
+        style: TextStyle(color: Colors.white),
+
+
+
+      ),
     ),
   );
-  }
+}
