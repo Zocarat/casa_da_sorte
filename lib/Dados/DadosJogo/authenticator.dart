@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 
+
 class Autehenticator {
   static FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -28,7 +29,7 @@ class Autehenticator {
     }
   }
 
-  static Future<bool> register (String email, String password) async {
+  static Future<bool> register(String email, String password) async {
     try {
       UserCredential userCredential =
           await _auth.createUserWithEmailAndPassword(
@@ -48,6 +49,5 @@ class Autehenticator {
       print('Erro ao registar !   $e');
       return false;
     }
-
   }
 }

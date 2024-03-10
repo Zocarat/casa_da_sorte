@@ -1,14 +1,6 @@
+
+
 import 'package:flutter/material.dart';
-
-
-
-
-
-
-
-
-
-
 
 class MeuBotaoComImagem extends StatelessWidget {
   final String imagePath;
@@ -37,26 +29,6 @@ class MeuBotaoComImagem extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Widget CustomButtonJogos(VoidCallback callback) {
   return Container(
     width: 150,
@@ -67,13 +39,14 @@ Widget CustomButtonJogos(VoidCallback callback) {
       color: Colors.transparent,
     ),
     child: IconButton(
-      icon: Image.asset("assets/IconesMenuCentral/rodaDaSorte.png",
-        fit: BoxFit.cover,),
+      icon: Image.asset(
+        "assets/IconesMenuCentral/rodaDaSorte.png",
+        fit: BoxFit.cover,
+      ),
       //iconSize: 60,
 
       onPressed: callback,
     ),
-
   );
 }
 
@@ -86,7 +59,7 @@ Widget CustonButtonApp() {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(onPressed: () {}, icon: Icon(Icons.home_filled)),
-          IconButton(onPressed: (){}, icon: Icon(Icons.monetization_on))
+          IconButton(onPressed: () {}, icon: Icon(Icons.monetization_on))
         ],
       ),
     ),
@@ -94,14 +67,12 @@ Widget CustonButtonApp() {
 }
 
 Widget listaHorizontal(List<Widget> children) {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children : [Container(
+  return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+    Container(
       //alignment: Alignment.center,
       height: 120.0,
 
       child: ListView.builder(
-
         scrollDirection: Axis.horizontal,
         itemCount: children.length,
         itemBuilder: (context, index) {
@@ -109,8 +80,32 @@ Widget listaHorizontal(List<Widget> children) {
         },
       ),
     )
-    ]
+  ]);
+}
+
+// ==============================================================================
+// ======================= Messagem de aviso uso Geral ==========================
+// ==============================================================================
+
+
+// Como diz o proprio nome, é uma caixa pra dar avisso de erro ou alerta ao usuário
+Widget AvisoGeral(
+  BuildContext context,
+  String titulo,
+  String mensagem,
+  String txtButton,
+) {
+  return AlertDialog(
+    title: Text(titulo),
+    content: Text(mensagem),
+    actions: <Widget>[
+      TextButton(
+          onPressed: () {
+            Navigator.of(context).pop(); //Fecha caixa de dialogo
+          },
+          child: Text(txtButton))
+    ],
   );
 }
 
-
+// ==============================================================================
