@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "262548548047",
+    "project_id": "casa-da-sorte-1c639",
+    "storage_bucket": "casa-da-sorte-1c639.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262548548047:android:0afeb693a53ccbab9a0aba",
+        "android_client_info": {
+          "package_name": "com.game.casa_da_sorte"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYxBMdvfEGe6Gpnt0j6HbP-4fUmdsn1Ps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
