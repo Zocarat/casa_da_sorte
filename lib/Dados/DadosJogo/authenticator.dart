@@ -7,7 +7,7 @@ class Autehenticator {
 
   // Funcao para autenticação do firebase
 
-  static Future<bool> authednticate (String email, String password) async {
+  static Future<bool> authednticate(String email, String password) async {
     try {
       UserCredential userCredencial = await _auth.signInWithEmailAndPassword(
         email: email,
@@ -25,7 +25,29 @@ class Autehenticator {
     } catch (e) {
       print('Erro de autenticação $e');
       return false;
-
     }
+  }
+
+  static Future<bool> register (String email, String password) async {
+    try {
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      // Verifica se o registro foi bem sucedido
+      if (userCredential.user != null) {
+        print('O registro foi bem sucedido!');
+        return true;
+      } else {
+        print("  O registro Falho!");
+        return false;
+      }
+    } catch (e) {
+      print('Erro ao registar !   $e');
+      return false;
+    }
+
   }
 }

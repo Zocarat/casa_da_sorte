@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:casa_da_sorte/Dados/DadosJogo/authenticator.dart';
 import 'package:flutter/material.dart';
 import 'UIHelperLogin.dart';
+import 'screenRegistro.dart';
 import 'package:casa_da_sorte/Home/ScreenHomePage.dart';
 
 class screenLogin extends StatefulWidget {
@@ -40,9 +41,9 @@ class _screenLoginState extends State<screenLogin> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 UIHelperLogin.textFieldCuston(
-                    'Digite o E-mail', Icon(Icons.email), false),
+                    'Digite o E-mail', Icon(Icons.email), false, _emailController),
                 UIHelperLogin.textFieldCuston(
-                    'Digite a senha', Icon(Icons.password), true),
+                    'Digite a senha', Icon(Icons.password), true, _passWordController),
                 SizedBox(height: 25.0),
                 customButton(() {
                   Autehenticator.authednticate(_emailController.toString(),
@@ -52,7 +53,11 @@ class _screenLoginState extends State<screenLogin> {
                 }, 'Entrar'),
                 SizedBox(height: 5.0),
                 customButton(
-                  () {},
+                  () {
+                    Navigator.push(context,
+                        MaterialPageRoute(
+                            builder: (context) => RegistroAuthenticator()));
+                  },
                   'Cadastrar',
                 ),
                 SizedBox(height: 16.0),

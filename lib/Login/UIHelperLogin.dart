@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class UIHelperLogin {
-  static textFieldCuston(String text, Icon icon, bool oculto) {
+  static textFieldCuston(String text, Icon icon, bool oculto, TextEditingController controller) {
     return Container(
       width: 350,
       height: 70,
       child: TextField(
+        controller: controller,
         textAlign: TextAlign.center,
         obscureText: oculto,
         autofocus: true,
