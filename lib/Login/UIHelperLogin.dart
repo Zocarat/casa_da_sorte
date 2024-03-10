@@ -57,3 +57,18 @@ Widget customButton(VoidCallback calback, String text) {
     ),
   );
 }
+Widget logoImage(double tamanho){
+  return
+    Container(
+      width: tamanho,
+      height: tamanho,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: const AssetImage(
+              "assets/logoLogin.png"
+          ),
+        ),
+      ),
+
+    );
+}
