@@ -1,5 +1,7 @@
+import 'package:casa_da_sorte/Saldos/screen_saldo.dart';
 import 'package:flutter/material.dart';
 import 'package:casa_da_sorte/Configuracoes/home_config.dart';
+import 'package:casa_da_sorte/Home/ScreenHomePage.dart';
 
 class MeuBotaoComImagem extends StatelessWidget {
   final String imagePath;
@@ -57,12 +59,18 @@ Widget CustonButtonApp(BuildContext context) {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.home_filled)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.monetization_on)),
+          IconButton(onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ScreenHomePage()));
+          }, icon: Icon(Icons.home_filled)),
+          IconButton(onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ScreenSaldo()));
+          }, icon: Icon(Icons.monetization_on)),
           IconButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ScreenConfig()));
+                    MaterialPageRoute(builder: (context) => const ScreenConfig()));
               },
               icon: const Icon(Icons.settings)),
         ],

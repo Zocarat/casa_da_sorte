@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:casa_da_sorte/Modulos/PainelSuperior.dart';
 import 'package:casa_da_sorte/Jogos/RodaDaSorte/AnimacaoRodaDaSorte.dart';
 
+
 class ScreenRodaDaSorte extends StatefulWidget {
   const ScreenRodaDaSorte({Key? key}) : super(key: key);
 
@@ -81,7 +82,14 @@ class _ScreenRodaDaSorteState extends State<ScreenRodaDaSorte> {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             child: ElevatedButton(
-                              onPressed: () async {},
+                              onPressed: () async {
+
+
+
+
+
+
+                              },
                               child: const Text('OK'),
                             ),
                           )

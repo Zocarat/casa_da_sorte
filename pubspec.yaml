@@ -26,6 +26,9 @@ dependencies:
   universal_html: ^2.2.4
   provider: ^6.1.2
   intl: ^0.17.0
+  audioplayers: ^5.2.1
+  flutter_cache_manager: ^3.3.1
+
 
 
 
@@ -60,7 +63,8 @@ flutter:
      - assets/fundoTelaCadastro.png
      - assets/fundoTelaHome.png
      - assets/logoLogin.png
-     - assets/song/songClick.mp3
+     - assets/fundoRoleta.png
+     - assets/m.mp3
 
   #   - images/a_dot_ham.jpeg
 
