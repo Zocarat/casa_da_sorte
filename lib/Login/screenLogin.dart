@@ -77,7 +77,7 @@ class _screenLoginState extends State<screenLogin> {
                     UIHelperLogin.textFieldCuston('Digite a senha',
                         const Icon(Icons.password), true, _passWordController),
                     const SizedBox(height: 25.0),
-                    customButton(() {
+                    customButton(() async {
                       if (_emailController.text.isEmpty ||
                           _passWordController.text.isEmpty) {
                         mostrarAlerta(
@@ -85,12 +85,27 @@ class _screenLoginState extends State<screenLogin> {
                           'Verifique o campo de E-mail e senha e tente novamente! ',
                           'OK',
                         );
+                        return;
                       }
 
-                      Autehenticator.authednticate(
-                        _emailController.toString(),
-                        _passWordController.toString(),
+                      bool autenticado = await Autehenticator.authednticate(
+                        _emailController.text.toString(),
+                        _passWordController.text.toString(),
                       );
+
+                      if (autenticado) {
+                        // Navega para tela principal
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ScreenHomePage()),
+                        );
+                      }else {
+                        // caso a autenticação falhar retorna mensagem erro
+                        mostrarAlerta('Falha de Login', 'Falha de usario ou senha', 'Entendi');
+                      }
+
+
                       // Navigator.push( context,  MaterialPageRoute(  builder: (context) => ScreenHomePage()), );
                     }, 'Entrar'),
                     const SizedBox(height: 5.0),
