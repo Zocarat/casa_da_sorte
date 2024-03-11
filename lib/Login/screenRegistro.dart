@@ -55,8 +55,8 @@ class _RegistroAuthenticatorState extends State<RegistroAuthenticator> {
               ElevatedButton(
                   onPressed: () {
                     Autehenticator.register(
-                      _emailController.toString(),
-                      _passwordController.toString(),
+                      _emailController.text.toString(),
+                      _passwordController.text.toString(),
                     );
                   },
                   style: ElevatedButton.styleFrom(
