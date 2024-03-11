@@ -1,4 +1,4 @@
-import 'package:casa_da_sorte/Jogos/RodaDaSorte/ScreenRodaDaSorte.dart';
+import '../Jogos/RodaDaSorte/ScreenRodaDaSorte.dart' show ScreenRodaDaSorte;
 import 'package:casa_da_sorte/Login/screenLogin.dart';
 import 'package:casa_da_sorte/Modulos/PainelSuperior.dart';
 import 'package:flutter/material.dart';
@@ -13,30 +13,25 @@ class ScreenHomePage extends StatefulWidget {
   State<ScreenHomePage> createState() => _ScreenHomePageState();
 }
 
-
 class _ScreenHomePageState extends State<ScreenHomePage> {
-
   late AuthProviderUser authProvider;
-
-
 
   @override
   Widget build(BuildContext context) {
-
     authProvider = Provider.of<AuthProviderUser>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: const Text('Home'),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: (){
-
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => screenLogin()));
-            AuthProviderUser().signOut();
-
-           }, icon: Icon(Icons.exit_to_app)),
+          IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const screenLogin()));
+                AuthProviderUser().signOut();
+              },
+              icon: const Icon(Icons.exit_to_app)),
         ],
       ),
       body: Center(
@@ -55,7 +50,7 @@ class _ScreenHomePageState extends State<ScreenHomePage> {
             children: [
               Text('Bem vindo, ${authProvider.user?.name ?? 'Usuário'}'),
               //Text('Saldo, ${authProvider.user?.saldo ?? '####'}'),
-              SizedBox(height: 15.0),
+              const SizedBox(height: 15.0),
               PainelSuperior(context),
               SizedBox(height: 15.0),
               listaHorizontal([
@@ -63,7 +58,7 @@ class _ScreenHomePageState extends State<ScreenHomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ScreenRodaDaSorte()),
+                        builder: (context) => const ScreenRodaDaSorte()),
                   );
                 }),
               ]),

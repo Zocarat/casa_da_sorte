@@ -16,7 +16,7 @@ class _ScreenSaldoState extends State<ScreenSaldo> {
     return Scaffold(
 
       appBar: AppBar(
-        title: Text(' Adicionar Saldos'),
+        title: const Text(' Adicionar Saldos'),
         centerTitle: true,
       ),
 

@@ -25,21 +25,21 @@ Widget PainelSuperior(BuildContext context ) {
   return Container(
     width: 350,
     height: 120,
-    padding: EdgeInsets.all(16),
+    padding: const EdgeInsets.all(16),
     decoration: BoxDecoration(
       color: Colors.blue,
       borderRadius: BorderRadius.circular(20),
     ),
     child: Column(
       children: [
-        Text(
+        const Text(
           'Saldo:',
-          style: TextStyle(
+          style:  TextStyle(
             fontSize: 20,
           ),
         ),
         Text('R\$  $saldoFormatado',
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 35
         ),
         ),

@@ -52,7 +52,7 @@ class AuthProviderUser with ChangeNotifier {
       try {
         // Referência ao documento do usuário no Firestore
         DocumentReference userDocRef =
-        FirebaseFirestore.instance.collection('users').doc(email);
+            FirebaseFirestore.instance.collection('users').doc(email);
 
         // Atualizar o saldo no Firestore
         await userDocRef.update({'saldo': newSaldo});
@@ -67,8 +67,8 @@ class AuthProviderUser with ChangeNotifier {
         // Lidar com o erro conforme necessário
       }
     }
-
   }
+
   Future<String?> getUserIdByEmail(String email) async {
     try {
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance
@@ -89,5 +89,4 @@ class AuthProviderUser with ChangeNotifier {
       return null;
     }
   }
-
 }

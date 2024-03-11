@@ -1,7 +1,4 @@
-
-
 import 'package:shared_preferences/shared_preferences.dart';
-
 
 class PreferencesServicesConfig {
   late SharedPreferences _preferences;
@@ -23,7 +20,5 @@ class PreferencesServicesConfig {
 
   }
   // =========================================================================
-
-
 
 }

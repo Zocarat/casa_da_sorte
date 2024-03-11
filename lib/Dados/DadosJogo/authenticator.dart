@@ -1,16 +1,12 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:casa_da_sorte/Dados/DadosJogo/provider.dart';
 
-
 class Autehenticator {
   static FirebaseAuth _auth = FirebaseAuth.instance;
-
-
 
   // Funcao para autenticação do firebase
 
@@ -34,9 +30,6 @@ class Autehenticator {
         Provider.of<AuthProviderUser>(context, listen: false).setUser(user);
         // Chama a função para buscar os dados do Firestore
         await _fetchUserDataFromFirestore(context, email); // Corrigido aqui
-
-
-
         print('A autenticação foi bem sucedida');
         return true;
       } else {
@@ -70,9 +63,11 @@ class Autehenticator {
       return false;
     }
   }
+
 //======================================== colacar na funcao de banco de dados
   // Função para obter dados do Firestore usando o e-mail
-  static Future<void> _fetchUserDataFromFirestore(BuildContext context, String email) async {
+  static Future<void> _fetchUserDataFromFirestore(
+      BuildContext context, String email) async {
     try {
       FirebaseFirestore firestore = FirebaseFirestore.instance;
       QuerySnapshot querySnapshot = await firestore
@@ -88,7 +83,8 @@ class Autehenticator {
           String nome = userData['nome'] ?? 'Usuário';
 
           // Atualiza o provedor de autenticação com os dados do Firestore
-          UserProvider user = UserProvider(name: nome, email: email, saldo: saldo);
+          UserProvider user =
+              UserProvider(name: nome, email: email, saldo: saldo);
           Provider.of<AuthProviderUser>(context, listen: false).setUser(user);
         } else {
           print('Dados do usuário não são um mapa.');
@@ -97,20 +93,9 @@ class Autehenticator {
         print('Usuário não encontrado no Firestore');
       }
     } catch (e) {
-      print('Erro ao obter dados do Firestore $e');
+      //print('Erro ao obter dados do Firestore $e');
     }
   }
-
-
-
-
-
-
-
-
-
 }
 
 //===============  ATENÇÃO RETIRAR DAQUI E MUDAR PRA CLASSE DE BANCO DE DADOS
-
-

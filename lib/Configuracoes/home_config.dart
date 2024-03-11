@@ -1,6 +1,5 @@
 import 'package:casa_da_sorte/Configuracoes/sharedPreferences_config.dart';
 import 'package:flutter/material.dart';
-
 import 'package:casa_da_sorte/Helper/UIHelper.dart';
 
 class ScreenConfig extends StatefulWidget {

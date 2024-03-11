@@ -46,13 +46,13 @@ class _RegistroAuthenticatorState extends State<RegistroAuthenticator> {
             children: [
               logoImage(150),
               UIHelperLogin.textFieldCuston('NOME',
-                  Icon(Icons.contact_mail_rounded), false, _nomeController),
+                  const Icon(Icons.contact_mail_rounded), false, _nomeController),
               UIHelperLogin.textFieldCuston(
-                  'SOBRENOME', Icon(Icons.abc), false, _sobrenomeController),
+                  'SOBRENOME', const Icon(Icons.abc), false, _sobrenomeController),
               UIHelperLogin.textFieldCuston(
-                  'E-MAIL', Icon(Icons.email), false, _emailController),
+                  'E-MAIL', const Icon(Icons.email), false, _emailController),
               UIHelperLogin.textFieldCuston(
-                  'SENHA', Icon(Icons.password), true, _passwordController),
+                  'SENHA', const Icon(Icons.password), true, _passwordController),
               ElevatedButton(
                   onPressed: () {
                     Autehenticator.register(
@@ -70,7 +70,7 @@ class _RegistroAuthenticatorState extends State<RegistroAuthenticator> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    fixedSize: Size(200, 50),
+                    fixedSize: const Size(200, 50),
                     textStyle: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

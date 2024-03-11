@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:casa_da_sorte/Configuracoes/home_config.dart';
 
@@ -61,19 +59,17 @@ Widget CustonButtonApp(BuildContext context) {
         children: [
           IconButton(onPressed: () {}, icon: Icon(Icons.home_filled)),
           IconButton(onPressed: () {}, icon: Icon(Icons.monetization_on)),
-          IconButton(onPressed: () {
-            Navigator.push( context, MaterialPageRoute(builder: (context) => ScreenConfig()));
-          }, icon: Icon(Icons.settings)),
+          IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ScreenConfig()));
+              },
+              icon: const Icon(Icons.settings)),
         ],
       ),
     ),
   );
 }
-
-
-
-
-
 
 Widget listaHorizontal(List<Widget> children) {
   return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -95,7 +91,6 @@ Widget listaHorizontal(List<Widget> children) {
 // ==============================================================================
 // ======================= Messagem de aviso uso Geral ==========================
 // ==============================================================================
-
 
 // Como diz o proprio nome, é uma caixa pra dar avisso de erro ou alerta ao usuário
 Widget AvisoGeral(

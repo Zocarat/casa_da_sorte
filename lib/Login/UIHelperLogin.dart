@@ -18,7 +18,7 @@ class UIHelperLogin {
           hintText: text,
           suffixIcon: icon,
           filled: true,
-          hintStyle: TextStyle(),
+          hintStyle: const TextStyle(),
           fillColor: Colors.white,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
@@ -38,7 +38,7 @@ Widget customButton(VoidCallback calback, String text) {
     child: ElevatedButton(
       onPressed: calback,
       style: ElevatedButton.styleFrom(
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold
           ),
@@ -49,7 +49,7 @@ Widget customButton(VoidCallback calback, String text) {
       child: Text(
         text,
 
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
 
 
 
@@ -62,8 +62,8 @@ Widget logoImage(double tamanho){
     Container(
       width: tamanho,
       height: tamanho,
-      decoration: BoxDecoration(
-        image: DecorationImage(
+      decoration: const BoxDecoration(
+        image: const DecorationImage(
           image: const AssetImage(
               "assets/logoLogin.png"
           ),
