@@ -1,7 +1,10 @@
+import 'package:casa_da_sorte/Configuracoes/sharedPreferences_config.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:casa_da_sorte/Dados/DadosJogo/DadosDoJogo.dart';
 import 'package:casa_da_sorte/Helper/UIHelper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class ScreenConfig extends StatefulWidget {
   const ScreenConfig({super.key});
@@ -10,9 +13,35 @@ class ScreenConfig extends StatefulWidget {
   State<ScreenConfig> createState() => _ScreenConfigState();
 }
 
-class _ScreenConfigState extends State<ScreenConfig> {
-  bool _soundEnable = true; // estado para rastrear é confihuração de sim
-  bool _modoEscuroEneble = false;
+class _ScreenConfigState extends State<ScreenConfig>  {
+
+  late PreferencesServicesConfig _preferencesServicesConfig;
+  bool _soundEnable =  PreferencesServicesConfig().getSoundEnable();
+  bool _modoEscuroEneble = false ;
+
+  void initState (){
+    super.initState();
+    _preferencesServicesConfig = PreferencesServicesConfig();
+    _loadPreferences();
+  }
+
+  void _loadPreferences () async {
+
+    await _preferencesServicesConfig.init();
+    setState(() {
+      _soundEnable = _preferencesServicesConfig.getSoundEnable();
+    });
+  }
+
+  Future<void> _savePreferences() async {
+    await _preferencesServicesConfig.setSoundEnable(_soundEnable);
+  }
+
+
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +59,7 @@ class _ScreenConfigState extends State<ScreenConfig> {
               child: Column(
                 children: [
                   ListTile(
-                    title: Text(
+                    title: const Text(
                       'Som',
                       style: TextStyle(
                         fontSize: 25,
@@ -42,6 +71,7 @@ class _ScreenConfigState extends State<ScreenConfig> {
                       onChanged: (value) {
                         setState(() {
                           _soundEnable = value;
+                          _savePreferences();
                         });
                       },
                     ),
