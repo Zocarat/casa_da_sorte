@@ -89,6 +89,7 @@ class _screenLoginState extends State<screenLogin> {
                       }
 
                       bool autenticado = await Autehenticator.authednticate(
+                        context,
                         _emailController.text.toString(),
                         _passWordController.text.toString(),
                       );

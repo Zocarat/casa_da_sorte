@@ -1,38 +1,51 @@
+import 'package:casa_da_sorte/Dados/DadosJogo/provider.dart';
 import 'package:casa_da_sorte/Home/ScreenHomePage.dart';
 import 'package:casa_da_sorte/Dados/DadosJogo/inicializador_firebase.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'Login/screenLogin.dart';
+import 'package:provider/provider.dart';
 
-void main()  async{
-
-  FirebaseConfig.StartFirebase();
-
-  runApp(const MyApp());
+void main() async {
+  try {
+    //await Firebase.initializeApp();
+    await FirebaseConfig.StartFirebase();
+    runApp(
+      ChangeNotifierProvider(
+        create: (context) => AuthProviderUser(),
+        child: MyApp(),
+      ),
+    );
+  } catch (e) {
+    print('Erro durante a inicialização do Firebase: $e');
+  }
 }
 
-
-
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  // Remova a palavra-chave const aqui
+  MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-
-      home: screenLogin(),
-      //LoginScreenTeste(),
+      home: Consumer<AuthProviderUser>(
+        builder: (context, authProvider, child) {
+          if (authProvider.isAuthenticated) {
+            return ScreenHomePage(); // Remova a palavra-chave const aqui
+          } else {
+            return screenLogin(); // Remova a palavra-chave const aqui
+          }
+        },
+      ),
     );
   }
 }
 
+
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -45,43 +58,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-
       _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProviderUser>(context);
 
     return Scaffold(
       appBar: AppBar(
-         title: Text(widget.title),
+        title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            if (authProvider.isAuthenticated)
+              Text('Welcome, ${authProvider.user?.name ?? 'User'}'),
+            const SizedBox(height: 20),
             const Text(
               'You have pushed the button this many times:',
             ),
             Text(
               '$_counter',
-             // style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
@@ -90,7 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
+
+
