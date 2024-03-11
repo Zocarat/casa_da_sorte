@@ -14,13 +14,14 @@ class _RegistroAuthenticatorState extends State<RegistroAuthenticator> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
-  TextEditingController _noError = TextEditingController();
+  TextEditingController _nomeController = TextEditingController();
+  TextEditingController _sobrenomeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           ' Registrar conta ',
           style: TextStyle(
             fontSize: 25,
@@ -45,9 +46,9 @@ class _RegistroAuthenticatorState extends State<RegistroAuthenticator> {
             children: [
               logoImage(150),
               UIHelperLogin.textFieldCuston(
-                  'NOME', Icon(Icons.contact_mail_rounded), false, _noError),
+                  'NOME', Icon(Icons.contact_mail_rounded), false, _nomeController),
               UIHelperLogin.textFieldCuston(
-                  'SOBRENOME', Icon(Icons.abc), false, _noError),
+                  'SOBRENOME', Icon(Icons.abc), false, _sobrenomeController),
               UIHelperLogin.textFieldCuston(
                   'E-MAIL', Icon(Icons.email), false, _emailController),
               UIHelperLogin.textFieldCuston(
@@ -64,12 +65,12 @@ class _RegistroAuthenticatorState extends State<RegistroAuthenticator> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     fixedSize: Size(200, 50),
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  child: Text('CADASTRAR'))
+                  child: const Text('CADASTRAR'))
             ],
           ),
         ),

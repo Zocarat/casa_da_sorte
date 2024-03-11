@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 class Autehenticator {
   static FirebaseAuth _auth = FirebaseAuth.instance;
 
