@@ -91,7 +91,6 @@ class _screenLoginState extends State<screenLogin> {
                         _emailController.toString(),
                         _passWordController.toString(),
                       );
-
                       // Navigator.push( context,  MaterialPageRoute(  builder: (context) => ScreenHomePage()), );
                     }, 'Entrar'),
                     const SizedBox(height: 5.0),

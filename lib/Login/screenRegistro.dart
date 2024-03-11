@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'UIHelperLogin.dart';
 import 'package:casa_da_sorte/Dados/DadosJogo/authenticator.dart';
+import 'package:casa_da_sorte/Dados/DadosJogo/firebase_service.dart';
 
 class RegistroAuthenticator extends StatefulWidget {
   const RegistroAuthenticator({super.key});
@@ -45,8 +46,8 @@ class _RegistroAuthenticatorState extends State<RegistroAuthenticator> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               logoImage(150),
-              UIHelperLogin.textFieldCuston(
-                  'NOME', Icon(Icons.contact_mail_rounded), false, _nomeController),
+              UIHelperLogin.textFieldCuston('NOME',
+                  Icon(Icons.contact_mail_rounded), false, _nomeController),
               UIHelperLogin.textFieldCuston(
                   'SOBRENOME', Icon(Icons.abc), false, _sobrenomeController),
               UIHelperLogin.textFieldCuston(
@@ -58,6 +59,11 @@ class _RegistroAuthenticatorState extends State<RegistroAuthenticator> {
                     Autehenticator.register(
                       _emailController.text.toString(),
                       _passwordController.text.toString(),
+                    );
+                    FirebaseService.registerUser(
+                      _nomeController.text.toString(),
+                      _sobrenomeController.text.toString(),
+                      _emailController.text.toString(),
                     );
                   },
                   style: ElevatedButton.styleFrom(
