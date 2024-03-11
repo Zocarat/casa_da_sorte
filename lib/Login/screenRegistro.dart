@@ -64,6 +64,7 @@ class _RegistroAuthenticatorState extends State<RegistroAuthenticator> {
                       _nomeController.text.toString(),
                       _sobrenomeController.text.toString(),
                       _emailController.text.toString(),
+                      0.48,
                     );
                   },
                   style: ElevatedButton.styleFrom(

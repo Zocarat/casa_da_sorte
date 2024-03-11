@@ -10,6 +10,7 @@ class FirebaseService {
     String nome,
     String sobrenome,
     String email,
+    double saldo,
   ) async {
     try {
       print('Tentando se conectar ao banco de dados');
@@ -21,6 +22,7 @@ class FirebaseService {
         'nome': nome,
         'sobrenome': sobrenome,
         'email': email,
+        'saldo': 10.00,
       });
       print('Registro bem sucedido ao Firebase, usuário foi cadastrado!');
       return true;

@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:casa_da_sorte/Dados/DadosJogo/DadosDoJogo.dart';
-
+import 'package:provider/provider.dart';
+import 'package:casa_da_sorte/Dados/DadosJogo/provider.dart';
 
 import 'package:flutter/material.dart';
 
@@ -82,15 +83,21 @@ class _RodaDaSorteWidgetState extends State<RodaDaSorteWidget>
   Future<void> _stopRotation(BuildContext context) async {
     _controller.stop(); // Para a rotação atual
 
-    await atualizaSaldo(_posicaoFinal);
 
+    final authProvider = Provider.of<AuthProviderUser>(context, listen: false);
+    double _saldoJogo = (authProvider.isAuthenticated
+        ? authProvider.user?.saldo.toDouble() ?? 0.00
+        : 0.00);
     // Exibir a caixa de diálogo após a rotação e atualização do saldo
-    caixaDeDialogo(context);
+     _saldoJogo = await atualizaSaldo(context ,_posicaoFinal, _saldoJogo);
+    caixaDeDialogo(context,_posicaoFinal , _saldoJogo );
+
   }
 
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       width: 320,
       height: 320,
@@ -134,16 +141,19 @@ class _RodaDaSorteWidgetState extends State<RodaDaSorteWidget>
     super.dispose();
   }
 
-  Future<void> caixaDeDialogo(BuildContext context) async {
-   // double saldoNovo = await PreferenciasJogo.getSaldo();
+  Future<void> caixaDeDialogo(BuildContext context, double posicaoFinal, double saldo) async {
+
+
+    String saldoString = saldo.toString();
+    //atualizaSaldo(context, posicaoFinal);
 
     print('caixa de dialogo inicia');
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Rotação Concluída"),
-         // content: Text("A rotação foi finalizada com sucesso! >> $saldoNovo "),
+          title: Text("Rotação Concluída Parabens"),
+          content: Text("A rotação foi finalizada com sucesso! >> $saldoString "),
           actions: [
             ElevatedButton(
               onPressed: () {
@@ -160,13 +170,29 @@ class _RodaDaSorteWidgetState extends State<RodaDaSorteWidget>
     });
   }
 
-  Future<void> atualizaSaldo(double posicaoFinal) async {
-    //double saldoAtual = await PreferenciasJogo.getSaldo();
+  Future<double> atualizaSaldo(BuildContext context, double posicaoFinal, double saldo) async {
+    // Obtenha o provedor de autenticação do contexto
 
-    if (posicaoFinal >= 18) {
-     // saldoAtual = saldoAtual * 1.10;
+    if (posicaoFinal >= 100) {
+      print('maior que 1');
+      saldo = saldo * 2.10;
+      final authProvider = Provider.of<AuthProviderUser>(context, listen: false);
+      authProvider.updateSaldo(saldo);
+      print('maior que 1');
     }
 
-    //await PreferenciasJogo.setSaldo(saldoAtual);
+
+
+
+
+    // Adicione lógica adicional conforme necessário
+    saldo = saldo + 5;
+    return saldo;
+
+    // Exemplo: Atualizar o saldo do jogo no servidor ou em qualquer lugar necessário
+    //await DadosDoJogo.atualizarSaldoServidor(saldo);
+
   }
+
 }
+

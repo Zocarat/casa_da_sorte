@@ -57,9 +57,9 @@ class _ScreenHomePageState extends State<ScreenHomePage> {
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text('Bem vindo, ${authProvider.user?.name ?? 'Usuário'}'),
-              Text('Saldo, ${authProvider.user?.saldo ?? '####'}'),
+              //Text('Saldo, ${authProvider.user?.saldo ?? '####'}'),
               SizedBox(height: 15.0),
-              PainelSuperior(''),
+              PainelSuperior('${authProvider.user?.saldo ?? '####'}'),
               SizedBox(height: 15.0),
               listaHorizontal([
                 CustomButtonJogos(() {
