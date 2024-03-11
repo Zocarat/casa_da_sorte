@@ -59,7 +59,7 @@ class _ScreenHomePageState extends State<ScreenHomePage> {
               Text('Bem vindo, ${authProvider.user?.name ?? 'Usuário'}'),
               //Text('Saldo, ${authProvider.user?.saldo ?? '####'}'),
               SizedBox(height: 15.0),
-              PainelSuperior('${authProvider.user?.saldo ?? '####'}'),
+              PainelSuperior(context),
               SizedBox(height: 15.0),
               listaHorizontal([
                 CustomButtonJogos(() {
@@ -74,7 +74,7 @@ class _ScreenHomePageState extends State<ScreenHomePage> {
           ),
         ),
       ),
-      bottomNavigationBar: CustonButtonApp(),
+      bottomNavigationBar: CustonButtonApp(context),
     );
   }
 }

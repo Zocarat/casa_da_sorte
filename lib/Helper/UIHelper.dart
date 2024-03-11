@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:casa_da_sorte/Configuracoes/home_config.dart';
 
 class MeuBotaoComImagem extends StatelessWidget {
   final String imagePath;
@@ -50,7 +51,7 @@ Widget CustomButtonJogos(VoidCallback callback) {
   );
 }
 
-Widget CustonButtonApp() {
+Widget CustonButtonApp(BuildContext context) {
   return BottomAppBar(
     child: Container(
       width: 300,
@@ -59,12 +60,20 @@ Widget CustonButtonApp() {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(onPressed: () {}, icon: Icon(Icons.home_filled)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.monetization_on))
+          IconButton(onPressed: () {}, icon: Icon(Icons.monetization_on)),
+          IconButton(onPressed: () {
+            Navigator.push( context, MaterialPageRoute(builder: (context) => ScreenConfig()));
+          }, icon: Icon(Icons.settings)),
         ],
       ),
     ),
   );
 }
+
+
+
+
+
 
 Widget listaHorizontal(List<Widget> children) {
   return Column(mainAxisAlignment: MainAxisAlignment.center, children: [

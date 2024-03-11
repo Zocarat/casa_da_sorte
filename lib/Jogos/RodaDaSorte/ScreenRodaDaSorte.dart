@@ -2,7 +2,7 @@
      Arquivo exclusivo para tela da roda da sorte
  */
 import 'package:intl/intl.dart';
-
+import 'package:casa_da_sorte/Helper/UIHelper.dart';
 import 'package:flutter/material.dart';
 import 'package:casa_da_sorte/Modulos/PainelSuperior.dart';
 import 'package:casa_da_sorte/Modulos/BarraMenuInferior.dart';
@@ -10,6 +10,7 @@ import 'package:casa_da_sorte/Modulos/BarraMenuInferior.dart';
 import 'package:casa_da_sorte/Jogos/RodaDaSorte/AnimacaoRodaDaSorte.dart';
 import 'package:provider/provider.dart';
 import 'package:casa_da_sorte/Dados/DadosJogo/provider.dart';
+
 
 class ScreenRodaDaSorte extends StatefulWidget {
   const ScreenRodaDaSorte({Key? key}) : super(key: key);
@@ -37,6 +38,10 @@ class _ScreenRodaDaSorteState extends State<ScreenRodaDaSorte> {
     NumberFormat formato = NumberFormat('#,##0.00', 'pt_BR');
     String saldoFormatado = formato.format(saldoInteger);
 
+    setState(() {
+
+    });
+
 
 
 
@@ -47,7 +52,7 @@ class _ScreenRodaDaSorteState extends State<ScreenRodaDaSorte> {
       ),
       body: Column(
         children: [
-          PainelSuperior(saldoFormatado),
+          PainelSuperior(context),
           const SizedBox(height: 10),
           Expanded(
             child: ListView(
@@ -120,7 +125,7 @@ class _ScreenRodaDaSorteState extends State<ScreenRodaDaSorte> {
           ),
         ],
       ),
-      bottomNavigationBar: BarraMenuInferior(),
+      bottomNavigationBar: CustonButtonApp(context),
     );
   }
 }
