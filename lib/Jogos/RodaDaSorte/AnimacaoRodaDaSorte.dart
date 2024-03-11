@@ -173,20 +173,37 @@ class _RodaDaSorteWidgetState extends State<RodaDaSorteWidget>
   Future<double> atualizaSaldo(BuildContext context, double posicaoFinal, double saldo) async {
     // Obtenha o provedor de autenticação do contexto
 
-    if (posicaoFinal >= 100) {
+    if (posicaoFinal <= 30) {
       print('maior que 1');
-      saldo = saldo * 2.10;
+      saldo = saldo * 3.10;
       final authProvider = Provider.of<AuthProviderUser>(context, listen: false);
       authProvider.updateSaldo(saldo);
       print('maior que 1');
     }
+    if (posicaoFinal >= 100) {
+      print('maior que 1');
+      saldo = saldo * 1.10;
+      final authProvider = Provider.of<AuthProviderUser>(context, listen: false);
+      authProvider.updateSaldo(saldo);
+      print('maior que 1');
+    }
+    if (posicaoFinal >= 250) {
+      print('perdeu');
+      saldo = saldo / 2.20;
+      final authProvider = Provider.of<AuthProviderUser>(context, listen: false);
+      authProvider.updateSaldo(saldo);
+
+    }
 
 
 
+    setState(() {
+      saldo;
+    });
 
 
     // Adicione lógica adicional conforme necessário
-    saldo = saldo + 5;
+
     return saldo;
 
     // Exemplo: Atualizar o saldo do jogo no servidor ou em qualquer lugar necessário

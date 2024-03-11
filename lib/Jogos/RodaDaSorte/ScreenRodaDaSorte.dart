@@ -1,6 +1,7 @@
 /*
      Arquivo exclusivo para tela da roda da sorte
  */
+import 'package:intl/intl.dart';
 
 import 'package:flutter/material.dart';
 import 'package:casa_da_sorte/Modulos/PainelSuperior.dart';
@@ -26,10 +27,19 @@ class _ScreenRodaDaSorteState extends State<ScreenRodaDaSorte> {
     // Obtenha o provedor de autenticação do contexto
     final authProvider = Provider.of<AuthProviderUser>(context);
 
-    // Verifique se o usuário está autenticado e obtenha o saldo
+
+
+
     String _saldoJogo = authProvider.isAuthenticated
         ? authProvider.user?.saldo.toString() ?? '0.00'
         : '0.00';
+    double saldoInteger = double.parse(_saldoJogo);
+    NumberFormat formato = NumberFormat('#,##0.00', 'pt_BR');
+    String saldoFormatado = formato.format(saldoInteger);
+
+
+
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Roda da Sorte'),
@@ -37,7 +47,7 @@ class _ScreenRodaDaSorteState extends State<ScreenRodaDaSorte> {
       ),
       body: Column(
         children: [
-          PainelSuperior(_saldoJogo),
+          PainelSuperior(saldoFormatado),
           const SizedBox(height: 10),
           Expanded(
             child: ListView(
