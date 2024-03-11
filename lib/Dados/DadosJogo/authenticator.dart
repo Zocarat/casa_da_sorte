@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:casa_da_sorte/Dados/DadosJogo/provider.dart';
-import 'package:universal_html/js.dart';
+
 
 class Autehenticator {
   static FirebaseAuth _auth = FirebaseAuth.instance;

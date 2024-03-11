@@ -11,7 +11,6 @@ class RegistroAuthenticator extends StatefulWidget {
 }
 
 class _RegistroAuthenticatorState extends State<RegistroAuthenticator> {
-  @override
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 

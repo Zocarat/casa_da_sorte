@@ -1,10 +1,7 @@
 import 'package:casa_da_sorte/Configuracoes/sharedPreferences_config.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:casa_da_sorte/Dados/DadosJogo/DadosDoJogo.dart';
-import 'package:casa_da_sorte/Helper/UIHelper.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:casa_da_sorte/Helper/UIHelper.dart';
 
 class ScreenConfig extends StatefulWidget {
   const ScreenConfig({super.key});
@@ -13,20 +10,19 @@ class ScreenConfig extends StatefulWidget {
   State<ScreenConfig> createState() => _ScreenConfigState();
 }
 
-class _ScreenConfigState extends State<ScreenConfig>  {
-
+class _ScreenConfigState extends State<ScreenConfig> {
   late PreferencesServicesConfig _preferencesServicesConfig;
-  bool _soundEnable =  PreferencesServicesConfig().getSoundEnable();
-  bool _modoEscuroEneble = false ;
+  bool _soundEnable = true;
+  bool _modoEscuroEneble = false;
 
-  void initState (){
+  @override
+  void initState() {
     super.initState();
     _preferencesServicesConfig = PreferencesServicesConfig();
     _loadPreferences();
   }
 
-  void _loadPreferences () async {
-
+  void _loadPreferences() async {
     await _preferencesServicesConfig.init();
     setState(() {
       _soundEnable = _preferencesServicesConfig.getSoundEnable();
@@ -37,17 +33,11 @@ class _ScreenConfigState extends State<ScreenConfig>  {
     await _preferencesServicesConfig.setSoundEnable(_soundEnable);
   }
 
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(' Configurações '),
+        title: const Text(' Configurações '),
         centerTitle: true,
       ),
       body: Center(
@@ -77,10 +67,10 @@ class _ScreenConfigState extends State<ScreenConfig>  {
                     ),
                   ),
                   ListTile(
-                    title: Text('Modo Escuro'),
+                    title: const Text('Modo Escuro'),
                     trailing: Switch(
                       value: _modoEscuroEneble,
-                      onChanged: ( value ) {
+                      onChanged: (value) {
                         setState(() {
                           _modoEscuroEneble = value;
                         });

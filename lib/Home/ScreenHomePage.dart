@@ -1,11 +1,8 @@
 import 'package:casa_da_sorte/Jogos/RodaDaSorte/ScreenRodaDaSorte.dart';
 import 'package:casa_da_sorte/Login/screenLogin.dart';
 import 'package:casa_da_sorte/Modulos/PainelSuperior.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:casa_da_sorte/Helper/UIHelper.dart';
-import 'package:casa_da_sorte/Modulos/PainelSuperior.dart';
-import 'package:casa_da_sorte/Dados/DadosJogo/DadosDoJogo.dart';
 import 'package:casa_da_sorte/Dados/DadosJogo/provider.dart';
 import 'package:provider/provider.dart';
 

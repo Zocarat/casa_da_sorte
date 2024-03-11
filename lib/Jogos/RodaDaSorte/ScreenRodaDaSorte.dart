@@ -1,15 +1,12 @@
 /*
      Arquivo exclusivo para tela da roda da sorte
  */
-import 'package:intl/intl.dart';
+
 import 'package:casa_da_sorte/Helper/UIHelper.dart';
 import 'package:flutter/material.dart';
 import 'package:casa_da_sorte/Modulos/PainelSuperior.dart';
-import 'package:casa_da_sorte/Modulos/BarraMenuInferior.dart';
-//import 'package:casa_da_sorte/Dados/DadosJogo/DadosDoJogo.dart';
+
 import 'package:casa_da_sorte/Jogos/RodaDaSorte/AnimacaoRodaDaSorte.dart';
-import 'package:provider/provider.dart';
-import 'package:casa_da_sorte/Dados/DadosJogo/provider.dart';
 
 
 class ScreenRodaDaSorte extends StatefulWidget {
@@ -20,30 +17,9 @@ class ScreenRodaDaSorte extends StatefulWidget {
 }
 
 class _ScreenRodaDaSorteState extends State<ScreenRodaDaSorte> {
-
-
-
   @override
   Widget build(BuildContext context) {
     // Obtenha o provedor de autenticação do contexto
-    final authProvider = Provider.of<AuthProviderUser>(context);
-
-
-
-
-    String _saldoJogo = authProvider.isAuthenticated
-        ? authProvider.user?.saldo.toString() ?? '0.00'
-        : '0.00';
-    double saldoInteger = double.parse(_saldoJogo);
-    NumberFormat formato = NumberFormat('#,##0.00', 'pt_BR');
-    String saldoFormatado = formato.format(saldoInteger);
-
-    setState(() {
-
-    });
-
-
-
 
     return Scaffold(
       appBar: AppBar(
@@ -107,11 +83,7 @@ class _ScreenRodaDaSorteState extends State<ScreenRodaDaSorte> {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             child: ElevatedButton(
-                              onPressed: () {
-
-                                authProvider.updateSaldo(50);
-
-                              },
+                              onPressed: () async {},
                               child: const Text('OK'),
                             ),
                           )

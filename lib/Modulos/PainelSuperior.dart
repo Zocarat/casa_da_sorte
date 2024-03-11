@@ -9,8 +9,6 @@
 
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:casa_da_sorte/Home/ScreenHomePage.dart';
-import 'package:provider/provider.dart';
 import 'package:casa_da_sorte/Dados/DadosJogo/provider.dart';
 import 'package:intl/intl.dart';
 

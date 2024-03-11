@@ -1,7 +1,6 @@
 import 'package:casa_da_sorte/Dados/DadosJogo/provider.dart';
 import 'package:casa_da_sorte/Home/ScreenHomePage.dart';
 import 'package:casa_da_sorte/Dados/DadosJogo/inicializador_firebase.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'Login/screenLogin.dart';
 import 'package:provider/provider.dart';

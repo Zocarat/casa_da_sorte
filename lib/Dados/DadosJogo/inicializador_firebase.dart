@@ -2,8 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 
 class FirebaseConfig {
-  static  StartFirebase() async {
-
+  static StartFirebase() async {
     WidgetsFlutterBinding.ensureInitialized();
 
     try {
@@ -15,7 +14,7 @@ class FirebaseConfig {
           projectId: "casa-da-sorte-1c639",
         ),
       );
-    }catch (e){
+    } catch (e) {
       print('Erro ao acessar serviço >>>>   $e');
     }
 

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'UIHelperLogin.dart';
-import 'screenRegistro.dart';
+import 'screenCadastro.dart';
 import 'package:casa_da_sorte/Home/ScreenHomePage.dart';
 import 'package:casa_da_sorte/Helper/UIHelper.dart';
 

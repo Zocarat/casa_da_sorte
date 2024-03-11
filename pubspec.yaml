@@ -27,6 +27,8 @@ dependencies:
   provider: ^6.1.2
   intl: ^0.17.0
 
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -58,6 +60,7 @@ flutter:
      - assets/fundoTelaCadastro.png
      - assets/fundoTelaHome.png
      - assets/logoLogin.png
+     - assets/song/songClick.mp3
 
   #   - images/a_dot_ham.jpeg
 
